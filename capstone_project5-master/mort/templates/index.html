@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name='viewport' content='width=device-width, initialscale=1' charset='UTF-8'>
+
+  <title>Project 5</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script src="{{ url_for('static', filename='tab_script.js')}}"></script>
+
+  <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"> -->
+
+  <style>
+    @font-face {
+      font-family: Roboto, sans-serif;
+      src: url('https://github.com/FontFaceKit/roboto/blob/gh-pages/fonts/Regular/Roboto-Regular.woff')
+    }
+
+    body {
+      font-family: Roboto, sans-serif;
+      background: #DDD;
+    }
+
+    h1 {
+      text-align: center;
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+
+    h2 {
+      text-align: left;
+      margin: 30px;
+    }
+
+    p {
+      font-size: 15px;
+      margin: 30px;
+    }
+
+    input {
+      font-family: Roboto, sans-serif;
+    }
+
+    form {
+      color: #000;
+      background: #999;
+      border: 3px solid #666;
+      border-radius: 15px;
+      padding: 30px;
+      margin: 40px
+    }
+
+    img {
+      margin: 80px;
+      border: 3px solid #777;
+    }
+
+    .flash {
+      font-family: Roboto, sans-serif;
+      font-weight: bold;
+      margin: 15px;
+    }
+
+    .container {
+      border: 1px solid black;
+      width: 800px;
+      margin: 0 auto;
+      background: #FFF;
+    }
+
+    .byline {
+      font-size: 12px;
+      font-variant: small-caps;
+    }
+
+    .col-sm-4 {
+      color: black;
+      border: solid 3px lightgray;
+      border-radius: 25px;
+      background: dimgray;
+    }
+
+    .col-sm-8 {
+      color: black;
+      background: dimgray;
+      border: solid 3px lightgray;
+      border-radius: 25px;
+    }
+
+    .button {
+      font-size: 15px;
+      color: dimgray;
+      background-color: white;
+      height: 40px;
+      width: 90px;
+      border-radius: 6px;
+      border-size: 1px;
+    }
+
+    div.tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+
+    div.tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+
+    div.tab button:hover {
+      background-color: #ddd;
+    }
+
+    div.tab button.active {
+      background-color: #ccc;
+    }
+
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div name="container">
+    <div name="row">
+      <h1>CDC Mortality Information 2k15</h1>
+      <hr> {% block body %}{% endblock %} {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %}
+    </div>
+  </div>
+  <hr>
+  <div class="byline">
+    © ranesi | <a href="mailto:ranesi@acm.org">email</a> | <a href="https://github.com/ranesi">github</a>
+  </div>
+</body>
+
+</head>
+
+</html>

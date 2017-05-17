@@ -1,0 +1,8 @@
+*.pyc
+*.db
+*.txt
+__pychache__
+venv/
+.idea/
+.DS_Store
+Project4/__pycache__/

@@ -1,0 +1,37 @@
+{% extends 'travel_wishlist/base.html' %}
+{% block content %}
+<h2>Travel Wishlist</h2>
+
+<form method="POST" action="{% url 'place_list' %}">
+{% csrf_token %}
+{{ form }}
+<button id="add_new_place" type="submit" style="color: white">Add</button>
+</form>
+
+{% for place in places %}
+
+<div>
+    {% if place.visited == False %}
+  <a href="{% url 'place_comment' %}">{{ place.name }}</a>
+  <!--<form method="POST" action="{% url 'place_is_visited' %}">-->
+    <!--{% csrf_token %}-->
+    <!--<input type="hidden" name="pk" value="{{ place.pk }}">-->
+    <!--<button type="submit" id="visited_{{ place.pk }}">Visited!</button>-->
+  <!--</form>-->
+    {% elif place.visited == True %}
+    {{ place.name }}
+    <pre>
+        Data visited: {{ place.date }}
+        Note: {{ place.note }}
+    </pre>
+        {% endif %}
+    <hr>
+</div>
+
+{% empty %}
+
+<p>You have no places in your wishlist!</p>
+
+{% endfor %}
+
+{% endblock %}

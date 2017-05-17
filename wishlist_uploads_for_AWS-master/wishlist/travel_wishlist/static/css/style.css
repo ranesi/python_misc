@@ -1,0 +1,50 @@
+body {
+  background-color: #353B3C;
+  color: #C6C7C4;
+  font-family: Arial;
+}
+
+h2 {
+  padding: 20px;
+  margin:0px;
+  background-color: #270722;
+  color: #C6C7C4;
+}
+
+h3 {
+  margin: 10px;
+  margin-left: 0px;
+}
+
+p {
+  margin: 4px;
+}
+
+div {
+  padding: 6px;
+}
+
+input {
+  margin : 10px;
+}
+
+button {
+  background-color: #BCE27F;
+  border: none;
+}
+
+a:link, a:visited {
+  color : #C6C7C4;
+}
+
+.nav {
+  padding: 10px;
+}
+
+.messages {
+  background-color: green;
+}
+
+.delete {
+  background-color: red;  /* for danger! */
+}

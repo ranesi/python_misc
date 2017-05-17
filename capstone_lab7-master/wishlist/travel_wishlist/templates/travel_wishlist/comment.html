@@ -1,0 +1,22 @@
+{% extends 'travel_wishlist/base.html' %}
+{% block content %}
+{% for place in places_comments %}
+{% if place.visited == False %}
+{{ place.name }}
+{% if place.note == None %}
+
+    <form method="POST" action="{% url 'place_comment' %}">
+        {% csrf_token %}
+        {{ comment }}
+        <input type="hidden" name="pk" value="{{ place.pk }}">
+        <button id="add_comment" type="submit">Submit</button>
+    </form>
+{% else %}
+{{ place.date }}, {{ place.note }}
+{% endif %}
+{% endif %}
+<hr>
+{% empty %}
+No places!
+{% endfor %}
+{% endblock %}

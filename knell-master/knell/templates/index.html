@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+      <title>Knell</title>
+
+
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+      <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+
+      <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+      <style>
+          @font-face {
+              font-family: Roboto, sans-serif;
+              src: url('https://github.com/FontFaceKit/roboto/blob/gh-pages/fonts/Regular/Roboto-Regular.woff')
+          }
+          body {
+              background-color: gray;
+              color: black;
+          }
+          .container {
+              margin:30px;
+          }
+          .col-sm-4 {
+              text-align: center;
+              color: black;
+              border: solid 3px lightgray;
+              border-radius: 25px;
+              background: dimgray;
+          }
+          .col-sm-6 {
+              color: black;
+              background: dimgray;
+              border: solid 3px lightgray;
+              border-radius: 25px;
+          }
+          .button {
+              font-size: 15px;
+              color: dimgray;
+              background-color: white;
+              height: 40px;
+              width: 90px;
+              border-radius: 6px;
+              border-size: 1px;
+          }
+      </style>
+
+</head>
+
+
+<body>
+<div class='container'>
+    <h1 style="font-variant: small-caps">What is Going On Anchorage! <img src='http://freevector.co/wp-content/uploads/2009/05/12212-cute-skull1-200x200.png' width='60px' height='60px' alt='spooky skull'> </h1>
+        <div class='row'>
+            <div class='col-sm-4'>
+                <form action="{{url_for('find_info')}}" method="post">
+                  <br><br><br>
+                    <h2>Click button for API magic.</h2>
+                    <input type="submit" name="submit" value="Request!" class="button" style="text-align: center">
+                </form>
+                {% for message in get_flashed_messages() %}
+                    <div class="flash"> {{ message }} </div>
+                {% endfor %}
+                <br><br><br>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class='col-sm-6'><br>
+                {% if locations %}
+                <h2>Showing results for {{ locations.city }}, {{ locations.state }}...</h2><br>
+                Crime Score: {{ results.score }}<br>
+                Air Quality: {{ results.air_quality }}<br>
+                Current Weather...<br>
+                {{ results.weather }}<br>
+                Avg. Income: ${{ results.income }}
+                <hr>
+                <h2>Location Information</h2>
+                <h3>Zip code:  {{ locations.zipcode }}</h3><br>
+                <h3>Latitude:  {{ locations.latitude }}</h3><br>
+                <h3>Longitude: {{ locations.longitude }}</h3><br>
+                {% endif %}
+                <br><br>
+            </div>
+        </div>
+    <br><hr>
+    <div class="row">
+        <address>
+            (c)2017 Alan Smithee
+        </address>
+    </div>
+</div>
+</body>
+</html>

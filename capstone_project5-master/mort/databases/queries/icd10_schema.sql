@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS icd10;
+
+
+CREATE TABLE icd10( code TEXT PRIMARY KEY NOT NULL, short_description TEXT NOT NULL, long_description TEXT NOT NULL);

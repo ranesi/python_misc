@@ -1,0 +1,10 @@
+1. Task queue. Delete old photo.
+
+2. Delete photos that are disconnected from a model - if user checks Clear checkbox when a photo has been added.
+
+* AWS *
+
+Task queue SQS
+
+
+Write some more tests!

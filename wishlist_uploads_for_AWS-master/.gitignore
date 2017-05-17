@@ -1,0 +1,11 @@
+*.pyc
+venv/
+__pycache__
+db.sqlite3
+wishlist/geckodriver.log
+media/images
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

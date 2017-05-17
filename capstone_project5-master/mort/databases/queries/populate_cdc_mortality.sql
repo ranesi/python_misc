@@ -1,0 +1,17 @@
+INSERT INTO cdc_mortality ( resident_status, education, month_of_death, sex, age_code, age, place_of_death, marital_status, work_injury, manner_of_death, method_of_disposition, autopsy, activity_code, icd_code, race, hispanic_origin)
+VALUES (?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?);

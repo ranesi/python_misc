@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang='en-us'>
+<head>
+  <title>Text Analysis</title>
+  <meta name='viewport' content='width=device-width, initialscale=1'charset='UTF-8'>
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous">
+  <link rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+  integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+  crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script>
+  <style>
+    @font-face {
+      font-family: Roboto, sans-serif;
+      src: url('https://github.com/FontFaceKit/roboto/blob/gh-pages/fonts/Regular/Roboto-Regular.woff')
+    }
+    body      {font-family:Roboto; background:#444444;}
+    h1        {text-align: center; background-color:#000000;color:#FFFFFF;}
+    h2        {text-align:left;margin:30px;}
+    p         {font-size: 15px; margin:5px; border:1px solid grey;
+              padding:25px;}
+    b         {font-size:20px;}
+    img       {margin:30px;}
+    .flash    {font-family:Roboto; font-weight: bold; margin: 15px;}
+    .container{border: 1px solid black;
+               width: 600px; margin: 0 auto;
+               background:#FFFFFF;}
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <h1>About</h1>
+    <a style='margin:15px' href="{{ url_for('index')}}">return</a>
+    <hr>
+    <p>
+        Text analysis web app. Provides the user with an estimated grade
+        level for a piece of text. English only. Currently ignores words
+        not found in the dictionary ('cmudict' from the nltk corpus).<br><br>
+        Planned additions: unknown word handling, user login/logout,
+        additional formulae (Gunning fog, SMOG, Fry readability, Coleman-Liau).<br><br>
+        Largely derivative of the 'flaskr' flask tutorial
+        <a href='https://github.com/pallets/flask/tree/master/examples/flaskr' target='_blank'>
+          found here.</a><br><br>
+        This web page utilizes the following:<br>
+        -flask<br>
+        -sqlite3<br>
+        -bootstrap<br>
+        -textrazor api<br>
+    </p>
+    <hr>
+    <h2>Flesch Reading Ease & Flesch-Kincaid Grade Level Scales</h2>
+    <p>
+        The following scales were developed in the 1970s by Rudolf Flesch and J. Peter Kincaid to evaluate Army / Navy technical manuals.<br><br>
+        <b>FRE:</b><br>
+        <img src=https://wikimedia.org/api/rest_v1/media/math/render/svg/bd4916e193d2f96fa3b74ee258aaa6fe242e110e
+        alt='Flesch Reading Ease'><br>
+        <b>FK-GL:</b><br>
+        <img src=https://wikimedia.org/api/rest_v1/media/math/render/svg/8e68f5fc959d052d1123b85758065afecc4150c3
+        alt='Flesch-Kincaid Grade Level'><br>
+    </p>
+    <hr>
+    <!--
+    <h2>SMOG</h2>
+    <p>
+        The SMOG grade was designed by G. Harry McLaughlin to approximately indicate the required years of education needed to comprehend a piece of text. Its original purpose was to address perceived shortcomings with the FK-GL, and is most commonly utilized by the medical industry (pamphlets, etc.).<br>
+        <img src=https://wikimedia.org/api/rest_v1/media/math/render/svg/da193073ce4254e54b077fbf56e418b14b50b9cd alt='SMOG' height='200', width='500'><br>
+    </p>
+    <hr>
+    -->
+    <h2>Automated Readability Index</h2>
+    <p>
+        Quoth Wikipedia:<br><br>
+        "The automated readability index (ARI) is a readability test for English texts, designed to gauge the understandability of a text. Like the Flesch–Kincaid grade level, Gunning fog index, SMOG index, Fry readability formula, and Coleman–Liau index, it produces an approximate representation of the US grade level needed to comprehend the text."
+        <img src='https://wikimedia.org/api/rest_v1/media/math/render/svg/878d1640d23781351133cad73bdf27bdf8bfe2fd'
+        alt='Automated Readability Index'><br>
+    </p>
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+  </div>
+</body>
+</html>

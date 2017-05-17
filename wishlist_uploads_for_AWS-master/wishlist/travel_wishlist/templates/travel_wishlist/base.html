@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wishlist</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  {% block content %}
+  {% endblock %}
+
+  <hr>
+  <span class="nav"><a href="{% url 'place_list' %}">Your Wish List</a></span>
+  <span class="nav"><a href="{% url 'places_visited' %}">Places you've visited</a></span>
+
+</body>
+</html>

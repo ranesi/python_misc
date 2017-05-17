@@ -1,0 +1,4 @@
+/asciiart/img
+/asciiart/vam_images
+*.pyc
+/asciiart/__pycache__

@@ -1,0 +1,5 @@
+graft mort/templates
+graft mort/static
+graft mort/databases
+graft mort/databases/queries
+graft mort/static/images

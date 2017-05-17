@@ -1,0 +1,62 @@
+{% extends 'index.html' %} {% block body %}
+
+<div class="col-sm-4">
+    <div class="tab">
+        <button class="tablinks" onclick="openForm(event, 'generalSearch')">General Search</button>
+        <button class="tablinks" onclick="openForm(event, 'definedSearch')">Defined Search</button>
+    </div>
+    <div id="generalSearch" class="tabcontent">
+        <form action="{{ url_for('display_results') }}" method="post" class="display-results">
+            <h3>Search by ... </h3><br>
+            <input type="radio" name="condition" value="top_10"> Top 10 Causes of Death<br><br>
+            <input type="radio" name="condition" value="by_age"> By age ... <br><input type="text" size="30" name="age"><br><br>
+            <input type="radio" name="condition" value="by_race"> By race ... <br><input type="text" size="30" name="race"><br><br>
+            <input type="radio" name="condition" value="random"> OR ... select a random entry to snoop!<br><br>
+            <input type="submit" value="Submit" class="button">
+        </form>
+    </div>
+    <div id="definedSearch" class="tabcontent">
+        <form action="{{ url_for('detailed_search')}}" method="post" class="detailed-search">
+            <h3>Detailed search ... </h3> Gender
+            <br>
+            <input type="text" size="30" name="sex">
+            <p style="font-size: 9px; margin: 0px;">Enter "male" or "female"</p><br> Age
+<br>
+            <input type="text" size="30" name="age">
+            <p style="font-size: 9px; margin: 0px;">Numbers only, please</p><br> Race
+            <br>
+            <input type="text" size="30" name="race">
+            <p style="font-size: 9px; margin: 0px;">If Asian, type country of origin</p><br><br>
+            <input type="submit" value="Submit" class="button">
+        </form>
+    </div>
+</div>
+
+<div class="col-sm-8">
+    {% if graph %}
+    <img src="{{ graph }}" type="img/png" align='right'> {% endif %} {% if entry %}
+    <pre>
+  Resident status:        {{ entry.resident_status }}<br>
+  Education:              {{ entry.education }}<br>
+  Month of death:         {{ entry.month_of_death }}<br>
+  Gender:                 {{ entry.sex }}<br>
+  Age:                    {{ entry.age }}<br>
+  Place of death:         {{ entry.place_of_death }}<br>
+  Marital status:         {{ entry.marital_status }}<br>
+  Work injury:            {{ entry.work_injury }}<br>
+  Manner of death:        {{ entry.manner_of_death }}<br>
+  Method of disposition:  {{ entry.method_of_disposition }}<br>
+  Autopsy:                {{ entry.autopsy }}<br>
+  Cause of death:         {{ entry.cause_of_death }}
+  Race:                   {{ entry.race }}<br>
+  Hispanic origin:        {{ entry.hispanic_origin }}<br>
+</pre> {% endif %} {% if entries %}
+    <p>
+        <ol style="color: #000; background: #999; border: 3px solid #666; border-radius: 15px; padding: 30px; margin: 40px">
+            {% for entry in entries %}
+            <li>Number: {{ entry.count }} <br> Cause of death: {{ entry.cod }} {% endfor %}
+        </ol>
+    </p>
+    {% endif %}
+</div>
+{% endblock %}

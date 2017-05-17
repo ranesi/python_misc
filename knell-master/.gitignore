@@ -1,0 +1,10 @@
+*.pyc
+*.db
+__pycache__
+*.txt
+venv/
+.idea/inspectionProfiles/
+.idea/knell.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml

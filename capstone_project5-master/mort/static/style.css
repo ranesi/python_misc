@@ -1,0 +1,58 @@
+@font-face {
+  font-family: Roboto, sans-serif;
+  src: url('https://github.com/FontFaceKit/roboto/blob/gh-pages/fonts/Regular/Roboto-Regular.woff')
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  background: #DDD;
+}
+
+h1 {
+  text-align: center;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+h2 {
+  text-align: left;
+  margin: 30px;
+}
+
+p {
+  font-size: 15px;
+  margin: 30px;
+}
+
+input {
+  font-family: Roboto, sans-serif;
+}
+
+form {
+  margin: 15px;
+}
+
+ol {
+  color: #000;
+  background: #999;
+  border: 3px solid black;
+  border-radius: 15px;
+  padding: 30px;
+  margin: 40px
+}
+
+.flash {
+  font-family: Roboto, sans-serif;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.container {
+  margin: 0 auto;
+  background: #FFF;
+}
+
+.byline {
+  font-size: 14px;
+  font-variant: small-caps;
+}
