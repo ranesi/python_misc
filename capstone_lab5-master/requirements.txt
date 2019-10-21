@@ -28,7 +28,7 @@ guess-language==0.2
 haversine==0.4.5
 html5lib==0.999
 itsdangerous==0.24
-nltk==3.2.2
+nltk==3.4.5
 pbr==1.10.0
 python-openid==2.2.5
 pytz==2016.10
