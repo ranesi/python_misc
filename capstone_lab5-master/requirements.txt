@@ -9,7 +9,7 @@ Flask-WTF==0.14.2
 Flask-WhooshAlchemy==0.56
 Jinja2==2.9.5
 MarkupSafe==0.23
-Pillow==2.3.0
+Pillow==8.1.1
 SQLAlchemy==1.1.5
 Tempita==0.5.2
 WTForms==2.1
